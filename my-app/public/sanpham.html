@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectronicStore</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>ElectronicStore</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>Tìm kiếm</button>
+            </div>
+            <div class="auth">
+                <a href="login.html">Đăng Nhập</a>
+                <a href="signup.html">Đăng Ký</a>
+            </div>
+            <div class="cart">
+                <a href="giohang.html">Giỏ hàng</a>
+            </div>
+            <div class="location">
+                <select id="city">
+                    <option value="travinh">Trà Vinh</option>
+                    <option value="hanoi">Hà Nội</option>
+                    <option value="lamdong">Lâm Đồng</option>
+                    <option value="tphcm">TP. Hồ Chí Minh</option>
+                    <option value="vinhlong">Vĩnh Long</option>
+                    <option value="cantho">Cần Thơ</option>
+                </select>
+            </div>            
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+                <li><a href="tintuc">Tin Tức</a></li>
+                <li><a href="hotro">Hỗ Trợ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="tendetai">SẢN PHẨM</div>
+    <div class="container-sanpham">
+        <!-- Sidebar danh mục bên trái (30%) -->
+        <aside class="sidebar">
+            <h2>Danh Mục</h2>
+            <hr>
+            <br>
+            <ul>
+                <li><a href="?category=noi-com-dien">Nồi Cơm Điện</a></li>
+                <br>
+                <li><a href="?category=may-giat">Máy Giặt</a></li>
+                <br>
+                <li><a href="?category=may-giat">Tủ Lạnh</a></li>
+                <br>
+                <li><a href="?category=may-giat">Máy Lọc Nước</a></li>
+            </ul>
+        </aside>
+
+        <!-- Phần sản phẩm bên phải (70%) -->
+        <section class="homepage-product-section">
+            <h2>Sản Phẩm</h2>
+            <div class="homepage-product-container">
+                <div class="homepage-product-item">
+                    <img src="img/sanpham1.webp" alt="Sản phẩm 1" class="homepage-product-img">
+                    <h3 class="homepage-product-title">Nồi cơm điện tử Sunhouse 1.8 lít SHD8911</h3>
+                    <p class="homepage-price-sale">Giá: 594.000<sub>đ</sub></p>
+                    <p class="homepage-price-original"><del>599.000<sub>đ</sub></del></p>
+                    <p class="homepage-discount">Giảm: -1%</p>
+                    <button class="homepage-add-to-cart-sp">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="homepage-product-item">
+                    <img src="img/sanpham2.jpg" alt="Sản phẩm 2" class="homepage-product-img">
+                    <h3 class="homepage-product-title">Nồi cơm điện tử Sharp 1.8 lít KS-COM194EV-RD</h3>
+                    <p class="homepage-price-sale">Giá: 581.000<sub>đ</sub></p>
+                    <p class="homepage-price-original"><del>599.000<sub>đ</sub></del></p>
+                    <p class="homepage-discount">Giảm: -2%</p>
+                    <button class="homepage-add-to-cart-sp">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="homepage-product-item">
+                    <img src="img/sanpham3.jpg" alt="Sản phẩm 3" class="homepage-product-img">
+                    <h3 class="homepage-product-title">Nồi cơm cao tần BlueStone 1.5 lít RCB-5988</h3>
+                    <p class="homepage-price-sale">Giá: 569.000<sub>đ</sub></p>
+                    <p class="homepage-price-original"><del>599.000<sub>đ</sub></del></p>
+                    <p class="homepage-discount">Giảm: -5%</p>
+                    <button class="homepage-add-to-cart-sp">Thêm vào giỏ hàng</button>
+                </div>  
+                <div class="homepage-product-item">
+                    <img src="img/sanpham3.jpg" alt="Sản phẩm 3" class="homepage-product-img">
+                    <h3 class="homepage-product-title">Nồi cơm cao tần BlueStone 1.5 lít RCB-5988</h3>
+                    <p class="homepage-price-sale">Giá: 569.000<sub>đ</sub></p>
+                    <p class="homepage-price-original"><del>599.000<sub>đ</sub></del></p>
+                    <p class="homepage-discount">Giảm: -5%</p>
+                    <button class="homepage-add-to-cart-sp">Thêm vào giỏ hàng</button>
+                </div>  
+            </div>
+        </section>
+    </div>
+     <!-- =====================Footer===================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Về Chúng Tôi</h3>
+                <p>Thông tin về ElectronicStore.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Hệ</h3>
+                <p>Email: storedientuelectronic@store.store</p>
+                <p>Điện thoại: 0345-678-910</p>
+            </div>
+            <div class="footer-section">
+                <h3>Theo Dõi Chúng Tôi</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Zalo</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ElectronicStore</p>
+        </div>
+    </footer>
+</body>
+</html>

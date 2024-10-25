@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectronicStore</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>ElectronicStore</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>Tìm kiếm</button>
+            </div>
+            <div class="auth">
+                <a href="login.html">Đăng Nhập</a>
+                <a href="signup.html">Đăng Ký</a>
+            </div>
+            <div class="cart">
+                <a href="giohang.html">Giỏ hàng</a>
+            </div>
+            <div class="location">
+                <select id="city">
+                    <option value="tphcm">TP. Hồ Chí Minh</option>
+                    <option value="hanoi">Hà Nội</option>
+                    <option value="lamdong">Lâm Đồng</option>
+                    <option value="travinh">Trà Vinh</option>
+                    <option value="vinhlong">Vĩnh Long</option>
+                    <option value="cantho">Cần Thơ</option>
+                </select>
+            </div>            
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+                <li><a href="tintuc">Tin Tức</a></li>
+                <li><a href="hotro">Hỗ Trợ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Chào mừng bạn đến với ElectronicStore!</h2>
+            <p>Khám phá sản phẩm mới nhất và ưu đãi hấp dẫn.</p>
+            <button class="cta-button">Khám Phá Ngay</button>
+        </div>
+    </section>
+    <!-- =====================Home===================== -->
+      
+    <section class="product-section">
+        <h2>Sản Phẩm Mới Nhất</h2>
+        <div class="product-container">
+            <div class="product">
+                <div class="badge">New</div>
+                <img src="img/sanpham1.webp" alt="Sản phẩm 1">
+                <h3>Nồi cơm điện tử Sunhouse 1.8 lít SHD8911</h3>
+                <p class="price_sale">Giá: 594.000<sub>đ</sub></p>
+                <p class="price_original"><del>599.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -1%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <div class="badge">New</div>
+                <img src="img/sanpham2.jpg" alt="Sản phẩm 2">
+                <h3>Nồi cơm điện tử <br> Sharp 1.8 lít KS-COM194EV-RD</h3>
+                <p class="price_sale">Giá: 581.000<sub>đ</sub></p>
+                <p class="price_original"><del>599.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -2%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <div class="badge">New</div>
+                <img src="img/sanpham3.jpg" alt="Sản phẩm 3">
+                <h3>Nồi cơm cao tần BlueStone 1.5 lít RCB-5988</h3>
+                <p class="price_sale">Giá: 569.000<sub>đ</sub></p>
+                <p class="price_original"><del>599.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -5%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <div class="badge">New</div>
+                <img src="img/sanpham4.jpg" alt="Sản phẩm 4">
+                <h3>Nồi cơm cao tần Kangaroo 1.8 lít KG599N</h3>
+                <p class="price_sale">Giá: 594.000<sub>đ</sub></p>
+                <p class="price_original"><del>599.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -1%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <div class="badge">New</div>
+                <img src="img/sanpham5.jpg" alt="Sản phẩm 5">
+                <h3>Nồi cơm điện tử BlueStone 1.8 lít RCB-5938</h3>
+                <p class="price_sale">Giá: 594.000<sub>đ</sub></p>
+                <p class="price_original"><del>599.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -1%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>    
+
+    <!-- =====================San Pham Pho Bien===================== -->
+    <section class="product-section">
+        <h2>Sản Phẩm Nổi Bật</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="img/sanpham6.jpg" alt="Sản Phẩm">
+                <h3>Tủ lạnh Xiaomi Mijia 430L, 4 cánh, ion khử khuẩn, cấp đông nhanh</h3>
+                <p class="price_sale">Giá: 10.200.000<sub>đ</sub></p>
+                <p><del>10.400.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -2%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham7.jpg" alt="Sản Phẩm">
+                <h3>Tủ lạnh Xiaomi Mijia 550L, 4 cánh, khử trùng bằng ion cao cấp</h3>
+                <p class="price_sale">Giá: 21.390.000<sub>đ</sub></p>
+                <p><del>21.606.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -1%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham8.jpg" alt="Sản Phẩm">
+                <h3>Tủ lạnh Xiaomi Mijia 518L, 4 cửa, có ngăn đông mềm</h3>
+                <p class="price_sale">Giá: 16.900.000<sub>đ</sub></p>
+                <p><del>17.071.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -1%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham9.jpg" alt="Sản Phẩm">
+                <h3>Tủ lạnh Xiaomi Mijia 603L, ngăn đông mềm 106L tiện lợi</h3>
+                <p class="price_sale">Giá: 22.900.000<sub>đ</sub></p>
+                <p><del>23.367.000 <sub>đ</sub></del></p>
+                <p class="discount">Giảm: -2%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham10.jpg" alt="Sản Phẩm">
+                <h3>Tủ lạnh Xiaomi Mijia 616L Side by Side ion khử khuẩn cấp đông nhanh</h3>
+                <p class="price_sale">Giá: 14.990.000<sub>đ</sub></p>
+                <p><del>15.288.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -2%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham11.webp" alt="Sản Phẩm">
+                <h3>Máy Giặt Samsung Inverter 12 kg WW12CGC04DABSV</h3>
+                <p class="price_sale">Giá: 12.990.000<sub>đ</sub></p>
+                <p><del>15.490.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -16%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham12.jpg" alt="Sản Phẩm">
+                <h3>Máy giặt Samsung Bespoke AI Inverter 24 kg WF24B9600KV/SV</h3>
+                <p class="price_sale">Giá: 25.300.000<sub>đ</sub></p>
+                <p><del>34.000.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -26%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham13.webp" alt="Sản Phẩm">
+                <h3>Máy Giặt Sấy LG Inverter WashTower 21/16 Kg WT2116SHEG</h3>
+                <p class="price_sale">Giá: 74.990.000<sub>đ</sub></p>
+                <p><del>86.207.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -13%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham14.jpg" alt="Sản Phẩm">
+                <h3>Máy lọc nước ion kiềm nóng lạnh nguội Karofi KAE-S88</h3>
+                <p class="price_sale">Giá: 53.580.000<sub>đ</sub></p>
+                <p><del>62.990.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -15%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham15.webp" alt="Sản Phẩm">
+                <h3>Máy lọc nước ion kiềm Karofi KAE-S65 Ion kiềm Cao Cấp</h3>
+                <p class="price_sale">Giá: 11.890.000<sub>đ</sub></p>
+                <p><del>15.700.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -24%</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>  
+    
+    <!-- =====================Footer===================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Về Chúng Tôi</h3>
+                <p>Thông tin về ElectronicStore.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liên Hệ</h3>
+                <p>Email: storedientuelectronic@store.store</p>
+                <p>Điện thoại: 0345-678-910</p>
+            </div>
+            <div class="footer-section">
+                <h3>Theo Dõi Chúng Tôi</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Zalo</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ElectronicStore</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

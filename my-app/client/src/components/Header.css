@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Header */
+header {
+    background-color: #e0e0e0;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.container {
+    max-width: 1350px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.logo h1 {
+    font-size: 50px;
+    color: #007bff;
+    font-style: italic;
+}
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+}
+.search-bar input {
+    padding: 15px;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    transition: border-color 0.3s;
+}
+.search-bar input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.search-bar button {
+    width: 120px;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px; /* Bo góc nút */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.search-bar button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+.location {
+    padding: 10px;
+    margin: 0 10px;
+}
+.location select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+    width: 150px;
+    background-color: #ffffff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: border-color 0.3s;
+}
+.location select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.cart {
+    padding: 10px 15px;
+    margin: 0 10px;
+}
+.cart a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.cart a:hover {
+    color: #0056b3;
+}
+
+.location select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 150px;
+    background-color: #ffffff;
+    appearance: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none; /* Xóa kiểu mặc định trên Firefox */
+    text-align: center; /* Căn giữa chữ */
+}
+/* Menu */
+nav ul.menu {
+    display: flex;
+    list-style: none;
+    justify-content: center; /* Center the menu */
+    padding: 10px 0; /* Add padding for the menu */
+}
+
+nav ul.menu li {
+    margin: 0 15px; /* Margin between menu items */
+}
+
+nav ul.menu li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px; /* Bo góc cho menu items */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul.menu li a:hover {
+    background-color: #f0f0f0; /* Màu nền khi hover */
+    color: #007bff; /* Đổi màu chữ khi hover */
+}
+
+/* Đăng Nhập & Đăng Ký */
+/* Đăng Nhập & Đăng Ký */
+.auth {
+    padding: 10px 15px; /* Thêm padding cho đẹp */
+    border-radius: 5px; /* Bo góc */
+    margin: 0 10px; /* Khoảng cách với các phần khác */
+    display: flex; /* Sử dụng flex để dễ căn chỉnh */
+    gap: 15px; /* Khoảng cách giữa các liên kết */
+}
+
+.auth a {
+    color: #333; /* Màu chữ trắng */
+    text-decoration: none; /* Xóa gạch chân */
+    font-weight: normal; /* Không làm đậm chữ */
+    transition: color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+}
+
+.auth a:hover {
+    color: #0056b3; /* Màu chữ khi hover */
+    text-decoration: underline; /* Thêm gạch chân khi hover */
+}

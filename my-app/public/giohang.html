@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/giohang.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>ElectronicStore</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>Tìm kiếm</button>
+            </div>
+            <div class="auth">
+                <a href="login.html">Đăng Nhập</a>
+                <a href="signup.html">Đăng Ký</a>
+            </div>
+            <div class="cart">
+                <a href="#">Giỏ hàng</a>
+            </div>
+            <div class="location">
+                <select id="city">
+                    <option value="tphcm">TP. Hồ Chí Minh</option>
+                    <option value="hanoi">Hà Nội</option>
+                    <option value="lamdong">Lâm Đồng</option>
+                    <option value="travinh">Trà Vinh</option>
+                    <option value="vinhlong">Vĩnh Long</option>
+                    <option value="cantho">Cần Thơ</option>
+                </select>
+            </div>            
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+                <li><a href="tintuc">Tin Tức</a></li>
+                <li><a href="hotro">Hỗ Trợ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br> <br> <br> <br>
+    <div class="cart-container">
+        <h2>GIỎ HÀNG</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                <th>Hình</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td><img src="img/sanpham1.webp" alt="Product 1"></td>
+                <td>Nồi cơm điện tử Sunhouse 1.8 lít SHD8911</td>
+                <td>594.000</td>
+                <td>
+                    <button class="quantity-btn decrease">-</button>
+                    <span class="quantity">1</span>
+                    <button class="quantity-btn increase">+</button>
+                  </td>
+                <td>581.00</td>
+                <td>
+                    <button class="action-btn delete-btn">Xoá</button>
+                </td>
+                </tr>
+                <tr>
+                <td><img src="img/sanpham2.jpg" alt="Product 2"></td>
+                <td>Nồi cơm điện tử <br> Sharp 1.8 lít KS-COM194EV-RD</td>
+                <td>581.000</td>
+                <td>
+                    <button class="quantity-btn decrease">-</button>
+                    <span class="quantity">1</span>
+                    <button class="quantity-btn increase">+</button>
+                </td>
+                <td>581.00</td>
+                <td>
+                    <button class="action-btn delete-btn">Xoá</button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="cart-total">
+            <h3>Tổng: 1162.00</h3>
+            <br><hr><br>
+            <button class="checkout-btn">Thanh Toán</button>
+        </div>
+    </div>
+</body>
+</html>

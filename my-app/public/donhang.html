@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="css/donhang.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>ElectronicStore</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>Tìm kiếm</button>
+            </div>
+            <div class="auth">
+                <a href="login.html">Đăng Nhập</a>
+                <a href="signup.html">Đăng Ký</a>
+            </div>
+            <div class="cart">
+                <a href="#">Giỏ hàng</a>
+            </div>
+            <div class="location">
+                <select id="city">
+                    <option value="tphcm">TP. Hồ Chí Minh</option>
+                    <option value="hanoi">Hà Nội</option>
+                    <option value="lamdong">Lâm Đồng</option>
+                    <option value="travinh">Trà Vinh</option>
+                    <option value="vinhlong">Vĩnh Long</option>
+                    <option value="cantho">Cần Thơ</option>
+                </select>
+            </div>            
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="khuyenmai.html">Khuyến Mãi</a></li>
+                <li><a href="tintuc">Tin Tức</a></li>
+                <li><a href="hotro">Hỗ Trợ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <div class="container-1">
+
+        <div class="product-details">
+            <h2>SẢN PHẨM</h2>
+            <table class="product-table">
+                <tr>
+                    <td><img src="img/sanpham1.webp" alt="Nồi cơm điện Sunhouse"></td>
+                    <td class="product-info">
+                        <p>Nồi cơm điện từ Sunhouse 1.8 lít SHD8911</p>
+                    </td>
+                    <td>594.000</td>
+                    <td>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <input type="text" value="1">
+                            <button>+</button>
+                        </div>
+                    </td>
+                    <td>594.000</td>
+                </tr>
+            </table>
+            <button class="out">Tiếp tục thêm sản phẩm</button>
+        </div>
+
+        <div class="checkout-section">
+            <div class="payment-info">
+                <h2>THÔNG TIN THANH TOÁN</h2>
+                <form class="checkout-form">
+                    <label for="name">Họ và tên:</label>
+                    <input type="text" id="name" placeholder="Họ và tên...">
+
+                    <label for="address">Địa chỉ nhận hàng:</label>
+                    <input type="text" id="address" placeholder="Địa chỉ nhận hàng (Số nhà, đường)...">
+
+                    <label for="city">Tỉnh/Thành phố:</label>
+                    <input type="text" id="city" placeholder="Tỉnh/Thành phố">
+
+                    <label for="district">Phường/huyện:</label>
+                    <input type="text" id="district" placeholder="Phường/huyện">
+
+                    <label for="ward">Quận/xã:</label>
+                    <input type="text" id="ward" placeholder="Quận/xã">
+
+                    <button type="submit" class="order-btn">Đặt hàng</button>
+                </form>
+            </div>
+
+            <div class="order-summary">
+                <h2>Đơn hàng của bạn</h2>
+                <div class="summary-item">
+                    <p>Sản phẩm</p>
+                    <p>Tổng</p>
+                </div>
+                <div class="summary-item">
+                    <p>Nồi cơm điện từ Sunhouse 1.8 lít SHD8911</p>
+                    <p>594.000</p>
+                </div>
+                <div class="summary-item">
+                    <p>Số lượng</p>
+                    <p>1</p>
+                </div>
+                <div class="summary-item total">
+                    <p>Tổng</p>
+                    <p>594.000</p>
+                </div>
+
+                <h3>Phương thức thanh toán</h3>
+                <div class="payment-methods">
+                    <input type="radio" id="bank" name="payment" value="bank">
+                    <label for="bank">Thanh toán Ngân hàng</label><br>
+                    <input type="radio" id="e-wallet" name="payment" value="e-wallet">
+                    <label for="e-wallet">Thanh toán Ví điện tử</label><br>
+                    <input type="radio" id="cod" name="payment" value="cod">
+                    <label for="cod">Thanh toán khi nhận hàng</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+footer {
+    background-color: #007bff; /* Màu nền giống giao diện */
+    padding: 20px 0; /* Padding cho footer */
+    color: white; /* Màu chữ trắng */
+}
+
+.footer-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Căn giữa các phần */
+    padding: 0 20px; /* Padding bên trái và bên phải */
+}
+
+.footer-section {
+    flex: 1; /* Mỗi phần chiếm 1 không gian đều nhau */
+    margin: 0 15px; /* Khoảng cách giữa các phần */
+}
+
+.footer-section h3 {
+    margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+}
+
+.footer-section a {
+    display: block; /* Để các liên kết nằm trên cùng một dòng */
+    margin: 5px 0; /* Khoảng cách giữa các liên kết */
+    color: #ffffff; /* Màu chữ trắng */
+    text-decoration: none; /* Không gạch chân */
+}
+
+.footer-section a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+.footer-bottom {
+    text-align: center; /* Căn giữa cho phần dưới cùng */
+    margin-top: 20px; /* Khoảng cách trên phần dưới cùng */
+}
