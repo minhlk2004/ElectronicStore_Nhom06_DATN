@@ -4,32 +4,31 @@ import { useCart } from './CartContext';
 import './Product.css';
 
 const ProductItem = ({ img, title, priceSale, priceOriginal, discount, id }) => {
-  const { addToCart } = useCart();
+  const { handleAddToCart } = useCart();
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`/product/${id}`);
   };
 
-  const handleAddToCart = (e) => {
+  const handleAddToCartClick = (e) => {
     e.stopPropagation(); // Ngăn chặn sự kiện click trên div cha
-    addToCart({ id, img, name: title, price: priceSale }); // Đảm bảo id có giá trị hợp lệ
-    navigate(`/cart?Id=${id}`); // Chuyển hướng đến giỏ hàng với ID sản phẩm
+    console.log("id sản phẩm:", id); // Hiển thị id sản phẩm trong console
+    console.log("Hình ảnh sản phẩm:", img); // Hiển thị hình ảnh sản phẩm trong console
+    handleAddToCart({ id, img, name: title, price: priceSale }); // Gọi hàm addToCart từ context
+    navigate('/cart'); // Chuyển hướng đến giỏ hàng
   };
-
 
   return (
     <div className="homepage-product-item" onClick={handleClick}>
-      <img src={img} alt={title} className="homepage-product-img" />
+      <img src={`${process.env.PUBLIC_URL}${img}`} alt={title} className="homepage-product-img" />
       <h3 className="homepage-product-title">{title}</h3>
       <p className="homepage-price-sale">Giá: {priceSale}.000<sub>đ</sub></p>
       <p className="homepage-price-original">
         <del>{priceOriginal}.000<sub>đ</sub></del>
       </p>
       <p className="homepage-discount">Giảm: {discount}%</p>
-      <button className="homepage-add-to-cart-sp" onClick={handleAddToCart}>
-        Thêm vào giỏ hàng
-      </button>
+      <button className="homepage-add-to-cart-sp" onClick={handleAddToCartClick}>Thêm vào giỏ hàng</button>
     </div>
   );
 };

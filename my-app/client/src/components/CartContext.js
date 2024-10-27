@@ -9,21 +9,20 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
-    setCart(prevCart => {
-      const existingItem = prevCart.find(item => item.id === product.id);
-      if (existingItem) {
-        // Nếu sản phẩm đã có trong giỏ, tăng quantity
-        return prevCart.map(item =>
+  // CartContext.js
+  const handleAddToCart = (product) => {
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find((item) => item.id === product.id);
+      if (existingProduct) {
+        return prevCart.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
-      } else {
-        // Nếu sản phẩm chưa có trong giỏ, thêm sản phẩm mới
-        return [...prevCart, { ...product, quantity: 1 }];
       }
+      return [...prevCart, { ...product, quantity: 1 }];
     });
   };
-
+  
+  
   const decreaseQuantity = (id) => {
     setCart(prevCart => {
       return prevCart.map(item => 
@@ -49,7 +48,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, decreaseQuantity, increaseQuantity, removeFromCart }}>
+    <CartContext.Provider value={{ cart, handleAddToCart, decreaseQuantity, increaseQuantity, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

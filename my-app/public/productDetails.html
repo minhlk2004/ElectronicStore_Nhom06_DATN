@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="css/detail.css">
+    <script src="js/detail.js"></script>
+</head>
+<body>
+    <div class="product-details">
+        <!-- Left Section: Product Image -->
+        <div class="product-image">
+            <img src="img/sanpham1.webp" alt="Sản phẩm 1">
+        </div>
+    
+        <!-- Right Section: Product Information -->
+        <div class="product-info">
+            <h3 class="product-name">Nồi cơm điện tử Sunhouse 1.8 lít SHD8911</h3>
+            <p class="price_sale">Giá: 594.000<sub>đ</sub></p>
+            <p class="price_original"><del>599.000<sub>đ</sub></del></p>
+            <p class="discount">Giảm: -1%</p>
+    
+            <!-- Quantity Section with + and - buttons (without input) -->
+            <div class="quantity-section">
+                <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                <span id="quantity-display">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+            </div>
+            <br>
+            <hr>
+            <!-- Button Grid -->
+            <div class="button-grid">
+                <button class="buy-now">Mua ngay</button>
+                <button class="installment">Mua trả góp</button>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="pay-later">Mua trước trả sau</button>
+                <button class="credit">Góp qua tín dụng</button>
+                <button class="call-me">Gọi lại cho tôi</button>
+            </div>
+        </div>
+    </div>
+    <!-- Mô tả sản phẩm -->
+    <div class="product-description">
+        <h1>Mô tả sản phẩm</h1>
+        <p>
+            Nồi cơm điện tử Sunhouse 1.8 lít SHD8911 có thiết kế hiện đại với chất liệu cao cấp, 
+            giúp nấu cơm ngon, mềm và dẻo. Với dung tích 1.8 lít, sản phẩm này thích hợp cho gia đình từ 4-6 người. 
+            Nồi được trang bị nhiều chế độ nấu khác nhau, dễ dàng điều chỉnh và sử dụng.
+        </p>
+        <p>
+            Ngoài ra, nồi còn có tính năng hẹn giờ nấu và giữ ấm, giúp bạn tiết kiệm thời gian và tiện lợi hơn 
+            trong việc chuẩn bị bữa ăn cho gia đình.
+        </p>
+    </div>
+
+    <!-- Sản phẩm liên quan -->
+    <div class="productDetail">
+        <h1>SẢN PHẨM LIÊN QUAN</h1>
+        <div class="related-products">
+            <div class="product">
+                <img src="img/sanpham1.webp" alt="Sản phẩm 1">
+                <h3>Nồi cơm điện tử Sunhouse 1.8 lít SHD8911</h3>
+                <p class="price_sale">Giá: 594.000<sub>đ</sub></p>
+                <p class="price_original"><del>599.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -1%</p>
+                <button class="add-to-cart-1">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham2.jpg" alt="Sản phẩm 2">
+                <h3>Nồi áp suất điện đa năng Kangaroo 5 lít KG135</h3>
+                <p class="price_sale">Giá: 1.290.000<sub>đ</sub></p>
+                <p class="price_original"><del>1.350.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -4%</p>
+                <button class="add-to-cart-1">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham3.jpg" alt="Sản phẩm 3">
+                <h3>Máy xay sinh tố Philips 1.25 lít HR2056</h3>
+                <p class="price_sale">Giá: 499.000<sub>đ</sub></p>
+                <p class="price_original"><del>550.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -9%</p>
+                <button class="add-to-cart-1">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="img/sanpham3.jpg" alt="Sản phẩm 3">
+                <h3>Máy xay sinh tố Philips 1.25 lít HR2056</h3>
+                <p class="price_sale">Giá: 499.000<sub>đ</sub></p>
+                <p class="price_original"><del>550.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -9%</p>
+                <button class="add-to-cart-1">Thêm vào giỏ hàng</button>
+            </div><div class="product">
+                <img src="img/sanpham3.jpg" alt="Sản phẩm 3">
+                <h3>Máy xay sinh tố Philips 1.25 lít HR2056</h3>
+                <p class="price_sale">Giá: 499.000<sub>đ</sub></p>
+                <p class="price_original"><del>550.000<sub>đ</sub></del></p>
+                <p class="discount">Giảm: -9%</p>
+                <button class="add-to-cart-1">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

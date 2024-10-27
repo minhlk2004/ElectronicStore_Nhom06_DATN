@@ -163,6 +163,32 @@ app.delete('/api/carts/:userId/items/:itemId', (req, res) => {
         res.json({ message: 'Sản phẩm đã được xóa khỏi giỏ hàng.' });
     });
 });
+// Thêm logging để biết lỗi cụ thể
+app.get('/api/products/:id', (req, res) => {
+    const productId = req.params.id;
+    db.query('SELECT * FROM product WHERE id = ?', [productId], (err, results) => {
+        if (err) {
+            console.error("Database query error:", err); // Ghi lỗi vào console
+            return res.status(500).send("Internal Server Error");
+        }
+        if (results.length === 0) {
+            return res.status(404).send("Product not found");
+        }
+        res.json(results[0]);
+    });
+});
+
+app.get('/api/products/category/:categoryId', (req, res) => {
+    const categoryId = req.params.categoryId;
+    const sql = 'SELECT * FROM products WHERE categoryID = ?';
+  
+    db.query(sql, [categoryId], (error, results) => {
+      if (error) {
+        return res.status(500).json({ error: error.message });
+      }
+      res.json(results);
+    });
+  });
 
 
 app.listen(PORT, () => {

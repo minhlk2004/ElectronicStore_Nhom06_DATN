@@ -9,16 +9,21 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NotFound from './components/NotFound';
 import ProductList from './components/ProductList';
-import Cart from './pages/Cart'; // Import Giỏ hàng
-import { CartProvider } from './components/CartContext'; // Import CartProvider
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import { CartProvider } from './components/CartContext';
+import ProductDetails from './pages/ProductDetails'; // Import trang chi tiết sản phẩm
 
 function App() {
   const location = useLocation();
+  
+  // Kiểm tra xem có nên hiển thị Header và Footer hay không
+  const shouldDisplayHeader = !['/login', '/signup', '/checkout'].includes(location.pathname);
+  const shouldDisplayFooter = !['/login', '/signup', '/cart', '/checkout'].includes(location.pathname);
 
   return (
     <div className="App">
-      {/* Hiển thị Header nếu không phải là trang login hoặc signup */}
-      {(location.pathname !== '/login' && location.pathname !== '/signup') && <Header />}
+      {shouldDisplayHeader && <Header />}
       
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,14 +31,15 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/products/:categoryId" element={<Products />} />
         <Route path="/products/category/:categoryId" element={<ProductList />} />
+        <Route path="/product/:productId" element={<ProductDetails />} /> {/* Đường dẫn cho ProductDetails */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* Hiển thị Footer nếu không phải là trang login, signup hoặc cart */}
-      {(location.pathname !== '/login' && location.pathname !== '/signup' && location.pathname !== '/cart') && <Footer />}
+      {shouldDisplayFooter && <Footer />}
     </div>
   );
 }
@@ -42,7 +48,7 @@ function App() {
 export default function RouterWrapper() {
   return (
     <Router>
-      <CartProvider> {/* Bao bọc App bằng CartProvider để quản lý trạng thái giỏ hàng */}
+      <CartProvider>
         <App />
       </CartProvider>
     </Router>

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import ProductItem from '../components/ProductItem'; // Đảm bảo đường dẫn là đúng
 import './Home.css';
 import Banner from '../components/Banner'; // Import component Banner
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true); // Trạng thái loading
+  const navigate = useNavigate(); // Khởi tạo useNavigate
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -14,22 +17,31 @@ const Home = () => {
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false); // Đặt trạng thái loading thành false
       }
     };
 
     fetchProducts();
   }, []);
 
+  const handleProductClick = (productId) => {
+    navigate(`/products/${productId}`); // Điều hướng đến trang chi tiết sản phẩm
+  };
+
   return (
     <section className="product-section">
       <Banner />
-      <br/>
+      <br />
       <h2>SẢN PHẨM</h2>
       <div className="homepage-product-container">
-        {products.length > 0 ? (
+        {loading ? ( // Hiển thị thông báo đang tải
+          <p>Đang tải sản phẩm...</p>
+        ) : products.length > 0 ? (
           products.map((product) => (
             <ProductItem
-              key={product.id}
+              id={product.id}
+              onClick={() => handleProductClick(product.id)} // Điều hướng khi nhấn vào sản phẩm
               img={`${process.env.PUBLIC_URL}/img/${product.img}`}
               title={product.name}
               priceSale={product.price}

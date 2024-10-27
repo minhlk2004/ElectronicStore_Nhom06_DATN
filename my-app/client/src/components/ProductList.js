@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ProductItem from './ProductItem';
 
 // Đối tượng ánh xạ từ categoryId đến tên danh mục
@@ -8,18 +8,19 @@ const categories = {
   '2': 'Tủ Lạnh',
   '3': 'Máy Giặt',
   '4': 'Máy Lọc Nước',
-  // Bạn có thể thêm các danh mục khác tại đây
+  // Thêm các danh mục khác tại đây nếu có
 };
 
 const ProductList = () => {
   const { categoryId } = useParams();
+  const navigate = useNavigate(); // Dùng useNavigate để điều hướng
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Gán giá trị mặc định cho categoryId
-  const defaultCategoryId = '1'; // Giá trị mặc định
-  const currentCategoryId = categoryId || defaultCategoryId; // Nếu categoryId không có, sử dụng giá trị mặc định
+  const defaultCategoryId = '1';
+  const currentCategoryId = categoryId || defaultCategoryId;
 
   useEffect(() => {
     const fetchProductsByCategory = async () => {
@@ -39,7 +40,7 @@ const ProductList = () => {
     };
 
     fetchProductsByCategory();
-  }, [currentCategoryId]); // Sử dụng currentCategoryId trong dependency array
+  }, [currentCategoryId]);
 
   if (loading) return <p>Đang tải dữ liệu sản phẩm...</p>;
   if (error) return <p>Lỗi: {error}</p>;
@@ -47,15 +48,21 @@ const ProductList = () => {
   // Lấy tên danh mục từ categories
   const categoryName = categories[currentCategoryId] || 'Danh mục không xác định';
 
+  // Hàm xử lý khi nhấn vào sản phẩm
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`); // Điều hướng tới trang chi tiết sản phẩm
+  };
+
   return (
     <section className="homepage-product-section">
-      <h2>{categoryName}</h2> {/* Hiển thị tên danh mục */}
+      <h2>{categoryName}</h2>
       <div className="homepage-product-container">
         {products.length > 0 ? (
           products.map((product) => (
             <ProductItem
-              key={product.id}
-              img={`${process.env.PUBLIC_URL}/img/${product.img}`}
+              id={product.id}
+              onClick={() => handleProductClick(product.id)} // Điều hướng khi nhấn vào sản phẩm
+              img ={`${process.env.PUBLIC_URL}/img/${product.img}`} alt={product.name}
               title={product.name}
               priceSale={product.price}
               priceOriginal={product.oldprice}

@@ -1,8 +1,10 @@
 import React from 'react';
 import { useCart } from '../components/CartContext'; 
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Cart.css';
 
 const Cart = () => {
+    const navigate = useNavigate(); // Khởi tạo useNavigate
     const { cart, decreaseQuantity, increaseQuantity, removeFromCart } = useCart();
 
     // Kiểm tra xem cart có tồn tại và là mảng không
@@ -33,9 +35,11 @@ const Cart = () => {
                     <tbody>
                         {cart.map((product) => (
                             <tr key={product.id}>
-                                <td><img src={product.img} alt={product.name} className="cart-product-img" /></td>
+                                <td><img src={`${process.env.PUBLIC_URL}${product.img}`} alt={product.name} /></td>
+
+
                                 <td>{product.name}</td>
-                                <td>{product.price.toLocaleString()} đ</td>
+                                <td>{product.price.toLocaleString()}.000đ</td>
                                 <td>
                                     <button className="quantity-btn" onClick={() => decreaseQuantity(product.id)} disabled={product.quantity === 1}>-</button>
                                     <span className="quantity">{product.quantity}</span>
@@ -48,14 +52,12 @@ const Cart = () => {
                             </tr>
                         ))}
                     </tbody>
-
-
                 </table>
             )}
             <div className="cart-total">
                 <h3>Tổng: {total.toLocaleString()}.000đ</h3>
                 <hr />
-                <button className="checkout-btn">Thanh Toán</button>
+                <button className="checkout-btn" onClick={() => navigate('/checkout')}>Thanh Toán</button>
             </div>
         </div>
     );
