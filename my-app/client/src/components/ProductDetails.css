@@ -75,9 +75,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background-color: white;
-    border: 1px solid gray;
-    color: #333;
+    border: none
 }
 .buy-now {
     width: 280px;

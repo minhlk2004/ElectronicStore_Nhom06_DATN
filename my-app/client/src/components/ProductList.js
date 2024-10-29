@@ -62,7 +62,7 @@ const ProductList = () => {
             <ProductItem
               id={product.id}
               onClick={() => handleProductClick(product.id)} // Điều hướng khi nhấn vào sản phẩm
-              img ={`${process.env.PUBLIC_URL}/img/${product.img}`} alt={product.name}
+              img ={`${process.env.PUBLIC_URL}${product.img}`} alt={product.name}
               title={product.name}
               priceSale={product.price}
               priceOriginal={product.oldprice}

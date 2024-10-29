@@ -94,8 +94,11 @@
 
 .add-to-cart:hover {
     background-color: #0056b3;
+    color: white;
 }
-
+.homepage-add-to-cart-sp:hover {
+    color: white;
+}
 /* Badge New */
 .badge {
     position: absolute;

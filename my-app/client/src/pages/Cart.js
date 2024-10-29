@@ -34,10 +34,9 @@ const Cart = () => {
                     </thead>
                     <tbody>
                         {cart.map((product) => (
-                            <tr key={product.id}>
-                                <td><img src={`${process.env.PUBLIC_URL}${product.img}`} alt={product.name} /></td>
-
-
+                            <tr id={product.id}>
+                                <td><img src={`/img/${product.img}`} alt={product.name} />
+                                </td>
                                 <td>{product.name}</td>
                                 <td>{product.price.toLocaleString()}.000đ</td>
                                 <td>

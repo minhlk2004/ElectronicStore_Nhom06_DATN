@@ -14,15 +14,11 @@ function ProductDetails() {
     useEffect(() => {
         // Cuộn về đầu trang
         window.scrollTo(0, 0);
-
         const fetchProductDetails = async () => {
             try {
                 const response = await fetch(`http://localhost:3000/api/products/${productId}`);
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || 'Failed to fetch product details');
-                }
                 const productData = await response.json();
+                console.log("Product details:", productData); // Kiểm tra dữ liệu product
                 setProduct(productData);
                 setLoading(false);
             } catch (error) {
@@ -33,12 +29,13 @@ function ProductDetails() {
         };
         fetchProductDetails();
     }, [productId]);
+    
 
     const handleAddToCartClick = () => {
         if (product) {
             handleAddToCart({
                 id: product.id,
-                img: product.img,
+                img: product.img,   
                 name: product.name,
                 price: product.price,
             });
@@ -65,7 +62,7 @@ function ProductDetails() {
     return (
         <div className="product-details-1">
             <div className="product-image">
-                <img src={`${process.env.PUBLIC_URL}/img/${product.img}`} alt={product.name} />
+                <img src={`/img/${product.img}`} alt={product.name} />
             </div>
 
             <div className="product-info">
@@ -75,9 +72,8 @@ function ProductDetails() {
                 <p className="discount">Giảm: -{product.discount}%</p>
                 <br />
                 <hr />
-
                 <div className="button-grid">
-                    <button className="add-to-cart" onClick={handleAddToCartClick}>Thêm vào giỏ hàng</button>
+                <button className="add-to-cart" onClick={handleAddToCartClick}>Thêm vào giỏ hàng</button>
                     <button className="add-to-cart" onClick={handleCheckoutClick}>Thanh Toán</button>
                     <button class="call-me">Gọi lại cho tôi</button>
                 </div>

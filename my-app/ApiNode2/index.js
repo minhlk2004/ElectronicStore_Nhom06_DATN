@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const bodyParser = require('body-parser'); // Import body-parser
 const cors = require('cors');
 const path = require('path');
 const app = express();
@@ -7,7 +8,7 @@ const PORT = 3000;
 
 // Sử dụng CORS
 app.use(cors());
-
+app.use(bodyParser.json()); // Thêm dòng này để phân tích cú pháp JSON
 // Phục vụ các tệp tĩnh từ thư mục 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -190,6 +191,20 @@ app.get('/api/products/category/:categoryId', (req, res) => {
     });
   });
 
+// API để đăng ký người dùng
+app.post('/api/signup', (req, res) => {
+    const { fullname, username, email, password } = req.body;
+  
+    const query = 'INSERT INTO user (fullname, username, email, password) VALUES (?, ?, ?, ?)';
+    
+    db.query(query, [fullname, username, email, password], (err, result) => {
+      if (err) {
+        console.error('Error inserting data:', err); // In lỗi ra console
+        return res.status(500).send({ message: 'Đã xảy ra lỗi khi đăng ký!' });
+      }
+      res.status(201).send({ message: 'Đăng ký thành công!' });
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

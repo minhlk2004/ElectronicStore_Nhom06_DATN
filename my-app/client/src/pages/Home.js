@@ -42,7 +42,7 @@ const Home = () => {
             <ProductItem
               id={product.id}
               onClick={() => handleProductClick(product.id)} // Điều hướng khi nhấn vào sản phẩm
-              img={`${process.env.PUBLIC_URL}/img/${product.img}`}
+              img={`${process.env.PUBLIC_URL}${product.img}`}
               title={product.name}
               priceSale={product.price}
               priceOriginal={product.oldprice}

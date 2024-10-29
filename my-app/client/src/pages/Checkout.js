@@ -52,7 +52,7 @@ const Checkout = () => {
                             cart.map((product) => (
                                 <tr key={product.id}>
                                     <td>
-                                    <img src={`${process.env.PUBLIC_URL}${product.img}`} alt={product.name} />
+                                    <img src={`${process.env.PUBLIC_URL}/img/${product.img}`} alt={product.name} />
 
                                     </td>
                                     <td className="product-info">

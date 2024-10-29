@@ -21,7 +21,7 @@ const ProductItem = ({ img, title, priceSale, priceOriginal, discount, id }) => 
 
   return (
     <div className="homepage-product-item" onClick={handleClick}>
-      <img src={`${process.env.PUBLIC_URL}${img}`} alt={title} className="homepage-product-img" />
+      <img src={`/img/${img}`} alt={title} className="homepage-product-img" />
       <h3 className="homepage-product-title">{title}</h3>
       <p className="homepage-price-sale">Giá: {priceSale}.000<sub>đ</sub></p>
       <p className="homepage-price-original">

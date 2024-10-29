@@ -11,16 +11,18 @@ export const CartProvider = ({ children }) => {
 
   // CartContext.js
   const handleAddToCart = (product) => {
+    console.log("Product added to cart:", product); // Kiểm tra xem img có tồn tại không
     setCart((prevCart) => {
-      const existingProduct = prevCart.find((item) => item.id === product.id);
-      if (existingProduct) {
-        return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prevCart, { ...product, quantity: 1 }];
+        const existingProduct = prevCart.find((item) => item.id === product.id);
+        if (existingProduct) {
+            return prevCart.map((item) =>
+                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+            );
+        }
+        return [...prevCart, { ...product, quantity: 1 }];
     });
-  };
+};
+
   
   
   const decreaseQuantity = (id) => {
