@@ -6,38 +6,40 @@ import './Checkout.css';
 const Checkout = () => {
     const navigate = useNavigate(); 
     const { cart } = useCart(); 
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Giả sử bạn lưu trạng thái đăng nhập ở đây
 
-    const [paymentMethod, setPaymentMethod] = useState(''); // Khởi tạo paymentMethod
-
+    const [paymentMethod, setPaymentMethod] = useState('');
     const total = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
-
-    const handleContinueShopping = () => {
-        navigate('/'); 
-    };
 
     const handlePaymentMethodChange = (event) => {
         setPaymentMethod(event.target.value); // Cập nhật phương thức thanh toán
     };
 
     const handlePlaceOrder = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của form
 
-        // Kiểm tra phương thức thanh toán
-        if (!paymentMethod) { 
-            alert("Vui lòng chọn phương thức thanh toán!");
+        if (!paymentMethod) { // Kiểm tra phương thức thanh toán
+            alert("Vui lòng chọn phương thức thanh toán!"); // Thông báo cho người dùng
             return;
         }
 
-        if (!isLoggedIn) {
-            // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
-            navigate('/login'); 
-        } else {
-            // Nếu đã đăng nhập, chuyển hướng đến trang hóa đơn thành công
-            navigate('/order-success'); 
-        }
-    };
+        // Tạo thông tin để truyền
+        const customerInfo = {
+            nameUser: event.target.nameUser.value,
+            phoneUser: event.target.phoneUser.value,
+            Diachi: event.target.Diachi.value,
+        };
 
+        // Chuyển hướng đến trang hóa đơn với toàn bộ thông tin cần thiết
+        navigate('/invoice', {
+            state: {
+                customerInfo,
+                totalAmount: total,
+                paymentMethod,
+                cartItems: cart, // Thêm giỏ hàng vào để gửi
+            },
+        });
+    };
+    
     return (
         <div className="container-1">
             <div className="product-details">
@@ -52,8 +54,7 @@ const Checkout = () => {
                             cart.map((product) => (
                                 <tr key={product.id}>
                                     <td>
-                                    <img src={`${process.env.PUBLIC_URL}/img/${product.img}`} alt={product.name} />
-
+                                        <img src={`${process.env.PUBLIC_URL}/img/${product.img}`} alt={product.name} />
                                     </td>
                                     <td className="product-info">
                                         <p>{product.name}</p>
@@ -70,7 +71,7 @@ const Checkout = () => {
                         )}
                     </tbody>
                 </table>
-                <button className="out" onClick={handleContinueShopping}>Tiếp tục thêm sản phẩm</button>
+                <button className="out" onClick={() => navigate('/products')}>Tiếp tục thêm sản phẩm</button>
             </div>
 
             <div className="checkout-section">
@@ -78,22 +79,13 @@ const Checkout = () => {
                     <h2>THÔNG TIN THANH TOÁN</h2>
                     <form className="checkout-form" onSubmit={handlePlaceOrder}>
                         <label htmlFor="name">Họ và tên:</label>
-                        <input type="text" id="name" placeholder="Họ và tên..." required />
+                        <input type="text" name='nameUser' id="nameUser" placeholder="Họ và tên..." required />
 
                         <label htmlFor="phone">Số điện thoại:</label>
-                        <input type="tel" id="phone" placeholder="Số điện thoại..." required />
+                        <input type="tel" name='phoneUser' id="phoneUser" placeholder="Số điện thoại..." required />
 
-                        <label htmlFor="address">Địa chỉ nhận hàng:</label>
-                        <input type="text" id="address" placeholder="Địa chỉ nhận hàng (Số nhà, đường)..." required />
-
-                        <label htmlFor="city">Quận/xã:</label>
-                        <input type="text" id="city" placeholder="Quận/xã" required />
-
-                        <label htmlFor="district">Phường/huyện:</label>
-                        <input type="text" id="district" placeholder="Phường/huyện" required />
-
-                        <label htmlFor="ward">Tỉnh/Thành phố:</label>
-                        <input type="text" id="ward" placeholder="Tỉnh/Thành phố" required />
+                        <label htmlFor="Diachi">Địa chỉ nhận hàng:</label>
+                        <input type="text" name='Diachi' id="Diachi" placeholder="Địa chỉ nhận hàng cụ thể..." required />
 
                         <button type="submit" className="order-btn">Đặt hàng</button>
                     </form>
@@ -117,7 +109,7 @@ const Checkout = () => {
                     </div>
 
                     <h4>Phương thức thanh toán</h4>
-                    <div className="payment-methods">
+                    <div className="payment-methods" name="pttt">
                         <input type="radio" id="bank" name="payment" value="bank" onChange={handlePaymentMethodChange} />
                         <label htmlFor="bank">Thanh toán Ngân hàng</label><br />
                         <input type="radio" id="e-wallet" name="payment" value="e-wallet" onChange={handlePaymentMethodChange} />

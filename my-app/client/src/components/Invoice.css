@@ -1,0 +1,107 @@
+.body-1 {
+    font-family: Arial, sans-serif;
+    background-color: #007bff; /* Màu nền xanh dương */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao toàn bộ viewport */
+}
+
+.invoice-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.invoice-title {
+    text-align: center;
+    color: #28a745; /* Màu chữ cho tiêu đề */
+    letter-spacing: 3px; /* Giãn khoảng cách giữa các chữ cái */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.invoice-details,
+.customer-info,
+.thank-you-message {
+    margin: 20px 0;
+}
+
+.invoice-details p,
+.customer-info p,
+.thank-you-message p {
+    margin: 5px 0;
+    letter-spacing: 1.2px; /* Giãn khoảng cách chữ */
+}
+
+.customer-info {
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+.order-details h3 {
+    letter-spacing: 2px; /* Giãn khoảng cách chữ */
+    color: #333;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.invoice-table th, .invoice-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+}
+
+.invoice-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+.total-amount p {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+.thank-you-message {
+    text-align: center;
+    font-weight: bold;
+    color: #28a745;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Màu nền cho nút */
+    color: white; /* Màu chữ cho nút */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    letter-spacing: 1.2px; /* Giãn khoảng cách chữ */
+}
+
+.button-container button:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+}

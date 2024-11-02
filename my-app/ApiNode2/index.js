@@ -11,9 +11,10 @@ app.use(cors());
 app.use(bodyParser.json()); // Thêm dòng này để phân tích cú pháp JSON
 // Phục vụ các tệp tĩnh từ thư mục 'public'
 app.use(express.static(path.join(__dirname, 'public')));
+const router = express.Router(); // Khai báo router
 
 // Cấu hình kết nối đến cơ sở dữ liệu
-const db = mysql.createConnection({
+const db  = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
@@ -21,7 +22,7 @@ const db = mysql.createConnection({
 });
 
 // Kết nối đến cơ sở dữ liệu
-db.connect(err => {
+db .connect(err => {
     if (err) {
         console.error('Kết nối thất bại:', err);
         return;
@@ -31,7 +32,7 @@ db.connect(err => {
 
 // Tạo một endpoint để lấy dữ liệu
 app.get('/api/products', (req, res) => {
-    db.query('SELECT * FROM product', (err, results) => {
+    db .query('SELECT * FROM product', (err, results) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -40,7 +41,7 @@ app.get('/api/products', (req, res) => {
 });
 // Tạo một endpoint để lấy danh sách danh mục
 app.get('/api/categories', (req, res) => {
-    db.query('SELECT * FROM categories', (err, results) => {
+    db .query('SELECT * FROM categories', (err, results) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -50,7 +51,7 @@ app.get('/api/categories', (req, res) => {
 // Tạo endpoint để lấy sản phẩm theo categoryID
 app.get('/api/products/category/:categoryId', (req, res) => {
     const categoryId = req.params.categoryId;
-    db.query('SELECT * FROM product WHERE categoryID = ?', [categoryId], (err, results) => {
+    db .query('SELECT * FROM product WHERE categoryID = ?', [categoryId], (err, results) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -78,7 +79,7 @@ const handleAddToCart = async (productId, quantity) => {
 app.get('/api/carts/:userId', (req, res) => {
     const userId = req.params.userId;
 
-    db.query('SELECT * FROM carts WHERE user_id = ?', [userId], (err, cartResults) => {
+    db .query('SELECT * FROM carts WHERE user_id = ?', [userId], (err, cartResults) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -89,7 +90,7 @@ app.get('/api/carts/:userId', (req, res) => {
 
         const cartId = cartResults[0].id;
 
-        db.query('SELECT * FROM cart_items WHERE cart_id = ?', [cartId], (err, itemResults) => {
+        db .query('SELECT * FROM cart_items WHERE cart_id = ?', [cartId], (err, itemResults) => {
             if (err) {
                 return res.status(500).send(err);
             }
@@ -104,7 +105,7 @@ app.post('/api/carts/:userId/items', express.json(), (req, res) => {
     const { productId, quantity } = req.body;
 
     // Lấy hoặc tạo giỏ hàng cho người dùng
-    db.query('SELECT * FROM carts WHERE user_id = ?', [userId], (err, cartResults) => {
+    db .query('SELECT * FROM carts WHERE user_id = ?', [userId], (err, cartResults) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -112,7 +113,7 @@ app.post('/api/carts/:userId/items', express.json(), (req, res) => {
         let cartId;
         if (cartResults.length === 0) {
             // Nếu không có giỏ hàng, tạo giỏ hàng mới
-            db.query('INSERT INTO carts (user_id, created_at) VALUES (?, NOW())', [userId], (err, result) => {
+            db .query('INSERT INTO carts (user_id, created_at) VALUES (?, NOW())', [userId], (err, result) => {
                 if (err) {
                     return res.status(500).send(err);
                 }
@@ -128,14 +129,14 @@ app.post('/api/carts/:userId/items', express.json(), (req, res) => {
 
 // Hàm để thêm sản phẩm vào giỏ hàng
 const addItemToCart = (cartId, productId, quantity, res) => {
-    db.query('SELECT * FROM cart_items WHERE cart_id = ? AND product_id = ?', [cartId, productId], (err, existingItemResults) => {
+    db .query('SELECT * FROM cart_items WHERE cart_id = ? AND product_id = ?', [cartId, productId], (err, existingItemResults) => {
         if (err) {
             return res.status(500).send(err);
         }
 
         if (existingItemResults.length > 0) {
             // Nếu sản phẩm đã tồn tại trong giỏ hàng, cập nhật số lượng
-            db.query('UPDATE cart_items SET quantity = quantity + ? WHERE id = ?', [quantity, existingItemResults[0].id], (err) => {
+            db .query('UPDATE cart_items SET quantity = quantity + ? WHERE id = ?', [quantity, existingItemResults[0].id], (err) => {
                 if (err) {
                     return res.status(500).send(err);
                 }
@@ -143,7 +144,7 @@ const addItemToCart = (cartId, productId, quantity, res) => {
             });
         } else {
             // Nếu sản phẩm chưa tồn tại, thêm mới
-            db.query('INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (?, ?, ?)', [cartId, productId, quantity], (err) => {
+            db .query('INSERT INTO cart_items (cart_id, product_id, quantity) VALUES (?, ?, ?)', [cartId, productId, quantity], (err) => {
                 if (err) {
                     return res.status(500).send(err);
                 }
@@ -157,7 +158,7 @@ const addItemToCart = (cartId, productId, quantity, res) => {
 app.delete('/api/carts/:userId/items/:itemId', (req, res) => {
     const itemId = req.params.itemId;
 
-    db.query('DELETE FROM cart_items WHERE id = ?', [itemId], (err) => {
+    db .query('DELETE FROM cart_items WHERE id = ?', [itemId], (err) => {
         if (err) {
             return res.status(500).send(err);
         }
@@ -167,7 +168,7 @@ app.delete('/api/carts/:userId/items/:itemId', (req, res) => {
 // Thêm logging để biết lỗi cụ thể
 app.get('/api/products/:id', (req, res) => {
     const productId = req.params.id;
-    db.query('SELECT * FROM product WHERE id = ?', [productId], (err, results) => {
+    db .query('SELECT * FROM product WHERE id = ?', [productId], (err, results) => {
         if (err) {
             console.error("Database query error:", err); // Ghi lỗi vào console
             return res.status(500).send("Internal Server Error");
@@ -183,13 +184,13 @@ app.get('/api/products/category/:categoryId', (req, res) => {
     const categoryId = req.params.categoryId;
     const sql = 'SELECT * FROM products WHERE categoryID = ?';
   
-    db.query(sql, [categoryId], (error, results) => {
+    db .query(sql, [categoryId], (error, results) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
       res.json(results);
     });
-  });
+  }); 
 
 // API để đăng ký người dùng
 app.post('/api/signup', (req, res) => {
@@ -197,7 +198,7 @@ app.post('/api/signup', (req, res) => {
   
     const query = 'INSERT INTO user (fullname, username, email, password) VALUES (?, ?, ?, ?)';
     
-    db.query(query, [fullname, username, email, password], (err, result) => {
+    db .query(query, [fullname, username, email, password], (err, result) => {
       if (err) {
         console.error('Error inserting data:', err); // In lỗi ra console
         return res.status(500).send({ message: 'Đã xảy ra lỗi khi đăng ký!' });
@@ -205,6 +206,34 @@ app.post('/api/signup', (req, res) => {
       res.status(201).send({ message: 'Đăng ký thành công!' });
     });
 });
+
+// API để đăng nhập người dùng
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+
+    const query = 'SELECT * FROM user WHERE username = ? AND password = ?';
+    
+    db .query(query, [username, password], (err, result) => {
+      if (err) {
+        console.error('Error querying data:', err);
+        return res.status(500).send({ message: 'Đã xảy ra lỗi khi đăng nhập!' });
+      }
+      if (result.length === 0) {
+        return res.status(401).send({ message: 'Tên đăng nhập hoặc mật khẩu không chính xác!' });
+      }
+
+      // Trả về thông tin người dùng
+      const user = result[0];
+      res.status(200).send({
+        message: 'Đăng nhập thành công!',
+        fullname: user.fullname // Trả về fullname
+      });
+    });
+});
+
+
+// Sử dụng router
+app.use('/', router);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

@@ -1,10 +1,18 @@
 // src/components/Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Menu from './Menu'; // Import Menu
+import { useUser } from '../components/UserContext'; // Import context
+import Menu from './Menu'; 
 import './Header.css';
 
 const Header = () => {
+    const { user, logout } = useUser(); // Lấy thông tin người dùng và hàm đăng xuất từ context
+
+    const handleLogout = () => {
+        logout(); // Gọi hàm đăng xuất
+        // Có thể thêm logic để điều hướng đến trang chính hoặc đăng nhập sau khi đăng xuất
+    };
+
     return (
         <header>
             <div className="container">
@@ -16,8 +24,20 @@ const Header = () => {
                     <button>Tìm kiếm</button>
                 </div>
                 <div className="auth">
-                    <Link to="/login">Đăng Nhập</Link>
-                    <Link to="/signup">Đăng Ký</Link>
+                    {user.fullname ? (
+                        <>
+                            <span className='username'>
+                                <div class ="Hello">Xin chào!!</div>
+                                <div class ="Fullname">{user.fullname}</div>
+                            </span>
+                            <button className='OutLogin' onClick={handleLogout}>Đăng Xuất</button>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/login">Đăng Nhập</Link>
+                            <Link to="/signup">Đăng Ký</Link>
+                        </>
+                    )}
                 </div>
                 <div className="cart">
                     <Link to="/cart">Giỏ hàng</Link>
@@ -35,7 +55,6 @@ const Header = () => {
             </div>
             <Menu />
         </header>
-        
     );
 };
 
